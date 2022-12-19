@@ -15,9 +15,6 @@ public class User {
     @Id
     private Long id;
 
-    @Column(unique = true, name = "username")
-    private String username;
-
     @Column(name = "password")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
@@ -34,7 +31,6 @@ public class User {
 
     public User(Long id, String username, String password, String emailAddress, Date createDate) {
         this.id = id;
-        this.username = username;
         this.password = password;
         this.emailAddress = emailAddress;
         this.createDate = createDate;
@@ -46,14 +42,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -84,7 +72,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", createDate=" + createDate +
